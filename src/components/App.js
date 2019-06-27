@@ -1,29 +1,25 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-function Button({onClickFunction, increment}) {
-  const handleClick = () => onClickFunction(increment);
-  return (
-    <button onClick={handleClick}>
-      + {increment}
-    </button>
-  );
+class Card extends React.Component {
+  render() {
+    return (
+      <div className="github-profile">
+        <img src="https://placehold.it/75" />
+        <div className="info">
+          <div className="name">Name here...</div>
+          <div className="company">Company here...</div>
+        </div>
+      </div>
+    );
+  }
 }
-
-function Display({message}) {
-  return (
-  <div>{message}</div>
-  );
-}
-
-export default function App() {
-  const [counter, setCounter] = useState(0);
-  const incrementCounter = (incrementValue) => setCounter(counter + incrementValue);
-  return (
-    <div>
-      <Button onClickFunction={incrementCounter} increment={1}/>
-      <Button onClickFunction={incrementCounter} increment={5}/>
-      <Button onClickFunction={incrementCounter} increment={10}/>
-      <Display message={counter} />
-    </div>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className="header">{this.props.title}</div>
+        <Card />
+      </div>
+    );
+  }
 }
